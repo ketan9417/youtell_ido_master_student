@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+</head>
+
+<body>
+    <div class="hero">
+
+        <nav>
+
+            <img class="logo" src="https://lh3.googleusercontent.com/wc_ySX2JefckG8m3E4Jq7Xr4WbPGQrJap2a_2pX5mMAZmpVHIgEWS1IuseQe4XCeD0vttLjFIhf2Fu05Q_nUFl451ObCh3w_tgw5rA">
+             <div>
+                   
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-warning" type="submit">Search</button>
+          </form>
+            </div>
+         
+            <!-- <img src="https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074076.jpg?w=1060&t=st=1678000466~exp=1678001066~hmac=dce20b36a2df3c5ee27b71bbb53267e99e2378acbcf9c4d701927ed30c08429f" alt=""> -->
+            <ul>
+                <li><button class="btn btn-light" mat-raised-button type="button" (click)="LoginPopUp('300ms','700ms')"  style="font-size:24px ;">
+                    <mat-icon class="material-icons green-color"style="margin-right: 6px; font: size 36px;">login</mat-icon>Login
+                </button></li>
+                <li><button class="btn btn-light" mat-raised-button type="button" (click)="RegisterPopUp('300ms','700ms')" style="margin-left: 30px;font-size: 24px;">
+                    <mat-icon class="material-icons green-color"style="margin-right: 4px;">app_registration</mat-icon>Sign Up
+                </button></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>www.noon.com</h1>
+            <button  (click)="RegisterPopUp('300ms','700ms')">Continue your Shopping</button>
+        </div>
+       
+    </div>
+</body>
+
+</html>

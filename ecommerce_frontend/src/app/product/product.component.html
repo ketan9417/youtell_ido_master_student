@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(251, 239, 15);">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <img class="logo" style="width: 100px;" src="https://lh3.googleusercontent.com/wc_ySX2JefckG8m3E4Jq7Xr4WbPGQrJap2a_2pX5mMAZmpVHIgEWS1IuseQe4XCeD0vttLjFIhf2Fu05Q_nUFl451ObCh3w_tgw5rA">
+          
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Womens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Electronics</a>
+          </li>    
+          <form class="d-flex mx-5">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-warning" type="submit">Search</button>
+          </form>
+        </ul>
+       
+      
+      </div>      
+    </div>
+    <button class="btn btn-warning " style="width: 140px;" type="submit">cartitem - {{cartitem}}</button>
+    <button class="btn btn-warning mx-5" (click)="logout1()" type="submit">logout</button>
+  </nav>
+
+  <div>
+    <div *ngFor="let data of productdata" id="card1">
+        <div style="width: 12rem;margin: 10px; height:230px ; border: 2px solid burlywood ; border-radius: 4px;">
+            <img src="{{data.p_imgurl}}" class="card-img-top" alt="..." style="height: 8rem;">
+            <div >
+              <h5 class="card-title">Item name -{{data.p_name}}</h5>
+              <p class="card-text">Price - {{data.p_price | currency:'INR'}}</p>
+              <div class="d-flex flex-row justify-content-around align-items-center " style="font-size: x-small;">
+                <a style="font-size: x-small;" (click)="cart()" class="btn btn-warning">Add to Cart</a>
+                <a style="font-size: x-small;"  class="btn btn-warning">buy now</a>
+              </div>
+             
+            </div>
+          </div>
+    </div>
+  </div> 
+
