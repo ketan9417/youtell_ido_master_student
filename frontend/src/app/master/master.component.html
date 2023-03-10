@@ -1,0 +1,82 @@
+<!-- <app-product></app-product> -->
+
+<div class="container">
+<h1 style="font-weight: bold;">Select student</h1>
+<select #mail1 (change)="update($event)" style="width: 200px;">
+    <option value="default">----</option>
+    <option *ngFor="let data of studentdata"  [value]="data.email">
+      {{data.userName}}
+    </option>
+</select>
+  
+<p *ngIf="flag1">You selected {{selected}}</p>
+
+
+<div id="set">
+  <div>
+    <h2>Click to check result of student</h2>
+<button (click)="toggle(mail1.value)">show result</button>
+<div *ngIf="flag">
+  <div>
+    <table>
+      <tr class="cab1" >
+        <th style=" width: 200px;">question</th>
+        <th >Student answer</th>
+        <th style=" width: 100px;">Correct answer</th>
+      </tr>
+      <tr class="cab1" *ngFor="let data of questiondata;let i=index">
+        <td> Question {{i+1}} => {{data.firstoperand}}  {{data.operation}} {{data.secondoperand}}</td>
+        <td>{{data.answer}}</td>
+        <td>{{data.currectanswer}}</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+  </div>
+  <div>
+    <h2>Click to give question to student</h2>
+    <button (click)="toggle1()">give question</button>
+
+    <div *ngIf="flag2">
+
+      <form [formGroup]="operationform" class="form1">
+   
+        <div >
+          <label class="form-label">enter 1st value </label>
+          <input type="number"   formControlName="firstoprand">
+        </div>
+        <div *ngIf="operationformValidator.firstoprand.touched && operationformValidator.firstoprand.invalid"
+        class="text-danger">
+        <div *ngIf="operationformValidator.firstoprand.errors?.['required']">number is required.</div>
+      </div>
+   
+          <div >
+            <label class="form-label">enter 2nd value </label>
+            <input type="number"   formControlName="secondoprand">
+          </div>
+          <div *ngIf="operationformValidator.secondoprand.touched && operationformValidator.secondoprand.invalid"
+          class="text-danger">
+          <div *ngIf="operationformValidator.secondoprand.errors?.['required']">number is required.</div>
+        </div>
+        
+          <div >
+            <label class="form-label">enter the operation symbol </label>
+            <select  style="width: 200px;" formControlName="operation">
+              <option value="default">----</option>
+              <option value="*">Multiply-(*)</option>
+              <option value="+">Plus-(+)</option>
+              <option value="-">Subtraction-(-)</option>
+              <option value="/">Divide(/)</option>    
+          </select>
+          </div>
+      <div class="d-flex ">
+        <button   [disabled]="operationform.invalid" (click)="submit()">submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+  
+</div>
