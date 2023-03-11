@@ -1,15 +1,18 @@
 <!-- <app-product></app-product> -->
-<p>student works!</p>
-<div *ngFor="let data of questiondata;let i=index" style="margin-top: 20px;">
+<body>
+ 
+<app-navbar></app-navbar>
+<div class="container">
+<div *ngFor="let data of questiondata;let i=index" style="margin-top: 20px;font-weight: bold;" >
   Question {{i+1}} => {{data.firstoperand}}  {{data.operation}} {{data.secondoperand}}
  
     
 <form [formGroup]="answerform" class="form1">
   
       <div >
-        <label >enter the answer</label>
+        <label  >enter the answer</label>
     </div>
-    <input type="number" placeholder="{{data.answer}}" #answer1 formControlName="answer">
+    <input type="number" placeholder="{{data.answer}}" #answer1 formControlName="answer" style="margin-right: 10px;">
     <button (click)="submitans(answer1.value,data.q_id)" >submit answer</button>
       <div *ngIf="answerformValidator.answer.touched && answerformValidator.answer.invalid && data.answer==null"
       class="text-danger">
@@ -18,5 +21,7 @@
        
     </form>
 </div>
-
+</div>
+ 
+</body>
 

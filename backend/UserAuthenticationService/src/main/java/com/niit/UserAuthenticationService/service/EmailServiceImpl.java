@@ -35,8 +35,8 @@ public class EmailServiceImpl implements EmailService{
             mailMessage.setFrom(sender);
             mailMessage.setTo(user.getEmail());
 
-            mailMessage.setText("Congratulations...!!! You Have Successfully Registered to Noon...!!!");
-            mailMessage.setSubject("www.noon.com Registration...!!!");
+            mailMessage.setText("Congratulations...!!! You Have Successfully Registered to studyroom...!!!");
+            mailMessage.setSubject("www.studyroom.com Registration...!!!");
             javaMailSender.send(mailMessage);
             return "Mail Sent Successfully...!!!";
         }catch (Exception e){

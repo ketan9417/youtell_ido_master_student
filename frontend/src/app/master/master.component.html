@@ -1,6 +1,8 @@
 <!-- <app-product></app-product> -->
+<body>
+<app-navbar></app-navbar>
 
-<div class="container">
+<div class="container" >
 <h1 style="font-weight: bold;">Select student</h1>
 <select #mail1 (change)="update($event)" style="width: 200px;">
     <option value="default">----</option>
@@ -9,25 +11,25 @@
     </option>
 </select>
   
-<p *ngIf="flag1">You selected {{selected}}</p>
+<p *ngIf="flag1" style="margin-top: 15px;">You selected {{selected}}</p>
 
 
 <div id="set">
   <div>
     <h2>Click to check result of student</h2>
 <button (click)="toggle(mail1.value)">show result</button>
-<div *ngIf="flag">
+<div *ngIf="flag" style="margin-top: 15px;">
   <div>
     <table>
       <tr class="cab1" >
-        <th style=" width: 200px;">question</th>
+        <th style=" width: 200px;">Question</th>
         <th >Student answer</th>
         <th style=" width: 100px;">Correct answer</th>
       </tr>
       <tr class="cab1" *ngFor="let data of questiondata;let i=index">
         <td> Question {{i+1}} => {{data.firstoperand}}  {{data.operation}} {{data.secondoperand}}</td>
-        <td>{{data.answer}}</td>
-        <td>{{data.currectanswer}}</td>
+        <td [ngStyle]="{'background-color':data.answer === data.currectanswer ? 'rgb(75, 200, 75)' : 'rgb(221, 56, 56)' }">{{data.answer}}</td>
+        <td >{{data.currectanswer}}</td>
       </tr>
     </table>
   </div>
@@ -37,13 +39,13 @@
     <h2>Click to give question to student</h2>
     <button (click)="toggle1()">give question</button>
 
-    <div *ngIf="flag2">
+    <div *ngIf="flag2" style="margin-top: 15px;">
 
       <form [formGroup]="operationform" class="form1">
    
         <div >
-          <label class="form-label">enter 1st value </label>
-          <input type="number"   formControlName="firstoprand">
+          <label class="form3">enter 1st value </label>
+          <input type="number"   style="width: 200px;" formControlName="firstoprand">
         </div>
         <div *ngIf="operationformValidator.firstoprand.touched && operationformValidator.firstoprand.invalid"
         class="text-danger">
@@ -51,8 +53,8 @@
       </div>
    
           <div >
-            <label class="form-label">enter 2nd value </label>
-            <input type="number"   formControlName="secondoprand">
+            <label class="form3">enter 2nd value </label>
+            <input type="number"   style="width: 200px;" formControlName="secondoprand">
           </div>
           <div *ngIf="operationformValidator.secondoprand.touched && operationformValidator.secondoprand.invalid"
           class="text-danger">
@@ -60,7 +62,7 @@
         </div>
         
           <div >
-            <label class="form-label">enter the operation symbol </label>
+            <label class="form3">enter the operation symbol </label>
             <select  style="width: 200px;" formControlName="operation">
               <option value="default">----</option>
               <option value="*">Multiply-(*)</option>
@@ -80,3 +82,4 @@
 
   
 </div>
+</body>

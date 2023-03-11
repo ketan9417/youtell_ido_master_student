@@ -82,6 +82,7 @@ else{
   } 
   this.service.sendstudentquestion(this.operations).subscribe((x)=>{
     console.log(x);
+    alert("question send to student");
   });
   }
 }

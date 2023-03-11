@@ -40,6 +40,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { MasterComponent } from './master/master.component';
 import { StudentComponent } from './student/student.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -60,6 +61,7 @@ import { StudentComponent } from './student/student.component';
 
     MasterComponent,
     StudentComponent,
+    NavbarComponent,
 
 
 
